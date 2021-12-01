@@ -10,12 +10,14 @@ public class Employee_Payroll {
         String password="3006";
         Connection con;
         Statement statement;
+        PreparedStatement preparedStatement;
         try{                                                                                    //try catch method to catch any exception occurs
             Class.forName("com.mysql.cj.jdbc.Driver");
             System.out.println("Driver Loaded");
             con = DriverManager.getConnection(jdbcurl, userName, password);
             System.out.println("Connection is Succesful "+con);
             statement=con.createStatement();
+            preparedStatement=
             boolean store = statement.execute("update employee_payroll set Basic_Pay=400000 where name ='Terissa';");       //updating basic salary of Terissa
             System.out.println(store);
             ResultSet resultSet=statement.executeQuery("select * from employee_payroll");
